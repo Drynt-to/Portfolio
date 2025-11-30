@@ -31,7 +31,11 @@ export const IT_PROJECTS = [
         desc: 'This is an Object Oriented Program we made back in our 2nd semester as our finals project as well as our Database project. The team consist of 4 students, David Winata, Ryan Eka, David Kristian and Daryanto Tanawi. This project uses java as the main language and pgAdmin for database as well SceneBuilder to build the UI.',
         tech: ['Java', 'pgAdmin', 'SceneBuilder'],
         link: 'https://github.com/Drynt-to/Project-OOP-and-Database',
-        images: []
+        images: [
+            "https://res.cloudinary.com/ddts06l2q/image/upload/v1764508003/Screenshot_2025-11-07_075613_hbn4wb.png",
+            "https://res.cloudinary.com/ddts06l2q/image/upload/v1764508064/Screenshot_2025-09-15_111816_nzayjf.png",
+            "https://res.cloudinary.com/ddts06l2q/image/upload/v1764508065/Screenshot_2025-09-15_111803_l0eber.png"
+        ]
     },
     {
         id: 'p3',
@@ -41,7 +45,14 @@ export const IT_PROJECTS = [
         desc: 'This is a desktop application project built to fulfill the coursework for Web Framework and Deployment. The application functions as a website for a carwash company called VroomWash.',
         tech: ['HTML', 'Tailwind CSS', 'Laravel', 'Laragon'],
         link: 'https://github.com/Drynt-to/VroomWash-Website',
-        images: []
+        images: [
+            "https://res.cloudinary.com/ddts06l2q/image/upload/v1764508355/Screenshot_2025-09-15_073802_ygmz06.png",
+            "https://res.cloudinary.com/ddts06l2q/image/upload/v1764508355/Screenshot_2025-09-15_073819_m9vgcy.png",
+            "https://res.cloudinary.com/ddts06l2q/image/upload/v1764508356/Screenshot_2025-09-15_073902_isjzz0.png",
+            "https://res.cloudinary.com/ddts06l2q/image/upload/v1764508355/Screenshot_2025-09-15_074002_dgyh5a.png",
+            "https://res.cloudinary.com/ddts06l2q/image/upload/v1764508354/Screenshot_2025-09-15_073825_og7q47.png",
+            "https://res.cloudinary.com/ddts06l2q/image/upload/v1764508354/Screenshot_2025-09-15_073950_naombo.png"
+        ]
     },
     {
         id: 'p4',

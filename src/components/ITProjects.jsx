@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Folder, ExternalLink, Paperclip, Code2, Calendar, User, X, Package, Activity, LayoutDashboard, ChevronLeft, ChevronRight } from 'lucide-react';
 import { IT_PROJECTS } from '../data';
 
-const getProjectIcon = (id) => {
+const getProjectIcon = (id, size = 20, className = "") => {
     switch (id) {
-        case 'p1': return <img src="https://res.cloudinary.com/ddts06l2q/image/upload/v1764356119/buat_yang_diatas_lic4qz.png" alt="Cathalina" className="w-10 h-10 object-cover rounded" />;
-        case 'p2': return <Activity size={20} />;
-        case 'p3': return <LayoutDashboard size={20} />;
-        case 'p4': return <LayoutDashboard size={20} />;
-        default: return <Code2 size={20} />;
+        case 'p1': return <img src="https://res.cloudinary.com/ddts06l2q/image/upload/v1764356119/buat_yang_diatas_lic4qz.png" alt="Cathalina" className={`object-cover rounded ${className}`} style={{ width: size, height: size }} />;
+        case 'p2': return <img src="https://res.cloudinary.com/ddts06l2q/image/upload/v1764507906/NewLogoUkb_xemelo.png" alt="Betlehem" className={`object-cover rounded ${className}`} style={{ width: size, height: size }} />;
+        case 'p3': return <img src="https://res.cloudinary.com/ddts06l2q/image/upload/v1764508265/icon_vroom_psswr1.png" alt="VroomWash" className={`object-cover rounded ${className}`} style={{ width: size, height: size }} />;
+        case 'p4': return <img src="https://res.cloudinary.com/ddts06l2q/image/upload/v1764509132/Jellycat_Birthday_Cake_w2cbzp.jpg" alt="CakeBot" className={`object-cover rounded ${className}`} style={{ width: size, height: size }} />;
+        default: return <Code2 size={size} className={className} />;
     }
 };
 
@@ -158,7 +158,7 @@ const ITProjects = ({ isDark }) => {
                                 }}
                                 title={project.title}
                             >
-                                {getProjectIcon(project.id)}
+                                {getProjectIcon(project.id, 20)}
                             </motion.button>
                         ))}
                     </div>
@@ -308,10 +308,15 @@ const ITProjects = ({ isDark }) => {
                     transition={{ duration: 0.8, type: "spring", bounce: 0.2 }}
                     className={`
             absolute inset-0 rounded-r-2xl rounded-bl-2xl border-2 shadow-2xl z-20 cursor-pointer
-            flex flex-col items-center justify-center
+            flex flex-col items-center justify-center overflow-hidden
             ${isDark ? 'bg-[#2a2a2a] border-[#444]' : 'bg-[#e6c6a6] border-[#8B735B]'}
           `}
                 >
+                    {/* Project Icon Watermark */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10">
+                        {getProjectIcon(activeProject.id, 300, isDark ? 'text-white' : 'text-[#4A4036]')}
+                    </div>
+
                     <Folder size={48} className={`opacity-50 ${isDark ? 'text-white' : 'text-[#4A4036]'}`} />
                     <span className={`mt-2 font-hand text-xl ${isDark ? 'text-gray-300' : 'text-[#4A4036]/70'}`}>
                         Click to Open

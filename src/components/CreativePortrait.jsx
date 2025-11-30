@@ -34,8 +34,13 @@ const CreativePortrait = ({ image, baseImage, isDark }) => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+
+        // Calculate scale factors
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
 
         ctx.beginPath();
         ctx.moveTo(x, y);
@@ -59,8 +64,12 @@ const CreativePortrait = ({ image, baseImage, isDark }) => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
 
         ctx.lineTo(x, y);
         ctx.stroke();
@@ -82,8 +91,12 @@ const CreativePortrait = ({ image, baseImage, isDark }) => {
         const ctx = canvas.getContext('2d');
         const rect = canvas.getBoundingClientRect();
         const touch = e.touches[0];
-        const x = touch.clientX - rect.left;
-        const y = touch.clientY - rect.top;
+
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        const x = (touch.clientX - rect.left) * scaleX;
+        const y = (touch.clientY - rect.top) * scaleY;
 
         ctx.beginPath();
         ctx.moveTo(x, y);
@@ -109,8 +122,12 @@ const CreativePortrait = ({ image, baseImage, isDark }) => {
         const ctx = canvas.getContext('2d');
         const rect = canvas.getBoundingClientRect();
         const touch = e.touches[0];
-        const x = touch.clientX - rect.left;
-        const y = touch.clientY - rect.top;
+
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        const x = (touch.clientX - rect.left) * scaleX;
+        const y = (touch.clientY - rect.top) * scaleY;
 
         ctx.lineTo(x, y);
         ctx.stroke();
@@ -200,7 +217,7 @@ const CreativePortrait = ({ image, baseImage, isDark }) => {
                     ref={canvasRef}
                     width={400}
                     height={600}
-                    className={`absolute inset-0 z-30 w-full h-[150%] -top-[25%] ${isDrawingMode ? 'cursor-crosshair pointer-events-auto' : 'pointer-events-none'}`}
+                    className={`absolute inset-0 z-30 w-full h-[150%] -top-[25%] touch-none ${isDrawingMode ? 'cursor-crosshair pointer-events-auto' : 'pointer-events-none'}`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}
